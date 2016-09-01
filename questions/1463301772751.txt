@@ -1,0 +1,1 @@
+{"content":"Node.js中的Express可以和Bootstrap结合使用吗？","petname":"常伟","ip":"::1","time":"2016-05-15T08:42:52.751Z","answers":[{"content":"完全可以的。","question":"1463301772751","petname":"米妮","ip":"::1","time":"2016-05-15T08:48:38.386Z"},{"content":"如果使用视图模板引擎开发会更方便，推荐使用ejs、jade（pug）等","question":"1463301772751","petname":"米妮","ip":"::1","time":"2016-05-15T08:53:34.477Z"}]}
