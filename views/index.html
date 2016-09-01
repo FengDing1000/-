@@ -1,0 +1,46 @@
+{{include './shared/header'}}
+    <div class="container questions">
+        <!--需要实现getTime formatDateTime这个模板Helper函数-->
+        {{each data as q i}}
+        <div class="media" 
+        {{if user}}
+        onclick="location.href='answer.html'"
+        {{else}}
+        onclick="location.href='signin.html'"        
+        {{/if}}
+        
+        question="{{q.time | getTime}}">
+            <div class="media-left">
+                <a>
+                    <img class="media-object" src="/uploads/{{ q.petname }}.jpg" onerror="this.src=\'/images/user.png\'">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{q.petname}}</h4>
+                {{q.content}}
+                <div class="media-footing">
+                    {{q.time | formatDateTime}}&#x3000;&#x3000;&#x3000; @ {{q.ip | formatIP}}
+                </div>
+            </div>
+        </div>
+        {{each q.answers as a i}}
+
+        <div class="media media-child">
+            <div class="media-body">
+                <h4 class="media-heading">{{a.petname}}</h4>{{a .content}}
+                <div class="media-footing">{{a.time | formatDateTime}}&#x3000;&#x3000;&#x3000; @ {{a.ip | formatIP}}</div>
+            </div>
+            <div class="media-right">
+                <a><img class="media-object" src="/uploads/{{a.petname}}.jpg" onerror="this.src=\'/images/user.png\'"></a>
+            </div>
+        </div>
+        {{/each}} 
+    {{/each}}
+
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="scripts/index.js"></script>
+    {{include './shared/footer'}}

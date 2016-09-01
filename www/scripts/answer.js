@@ -18,7 +18,7 @@ $('form').submit(function(ev){
         $('.modal').modal('show')
         .on('hidden.bs.modal', function (e) {
             if(res.code == 'success'){
-                location.href = 'index.html'
+                location.href = '/'
             }
         })
     }, 'json')

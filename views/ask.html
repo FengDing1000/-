@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="author" content="常伟">
-        <title>提问 - 智游教育问答</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="styles/all.css">
-    </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container dropdown">
-                <a class="navbar-brand" href="#">智游教育</a>
-                <div class="navbar-text pull-right text-right">
-                    <span class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-user"></span> 常伟
-                    </span>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a class="text-right" href="#">个人资料</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a class="text-right" href="#">退出</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+{{include './shared/header'}}
         <div class="container">
             <form>
                 <div class="form-group">
@@ -32,7 +6,41 @@
                 </div>
                 <button type="submit" class="btn btn-success form-control">提交问题</button>
             </form>
+       </div>
+
+               <div class="media" question="{{q.time | getTime}}">
+            <div class="media-left">
+                <a>
+                    <img class="media-object" src="/uploads/{{ q.petname }}.jpg" onerror="this.src=\'/images/user.png\'">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{q.petname}}</h4>
+                {{q.content}}
+                <div class="media-footing">
+                    {{q.time | formatDateTime}}&#x3000;&#x3000;&#x3000; @ {{q.ip | formatIP}}
+                </div>
+            </div>
         </div>
+
+        <div class="media media-child">
+            <div class="media-body">
+                <h4 class="media-heading">{{a.petname}}</h4>{{a .content}}
+                <div class="media-footing">{{a.time | formatDateTime}}&#x3000;&#x3000;&#x3000; @ {{a.ip | formatIP}}</div>
+            </div>
+            <div class="media-right">
+                <a><img class="media-object" src="/uploads/{{a.petname}}.jpg" onerror="this.src=\'/images/user.png\'"></a>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
         <div class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
@@ -52,5 +60,4 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="scripts/ask.js"></script>
-    </body>
-</html>
+    {{include './shared/footer'}}
