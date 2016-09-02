@@ -1,0 +1,25 @@
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container dropdown">
+            <a class="navbar-brand" href="/">智游教育</a>
+            <div class="navbar-text pull-right text-right">
+                <span id="ask" onclick="location.href='/ask'"><span class="glyphicon glyphicon-plus"></span> 提问</span>&#x3000;
+                
+                <span id="user" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span> 
+
+                {{if user }}
+                <span>{{user}}</span> 
+                {{else}}
+                <span onclick="location.href='/user/signin'">登录</span>
+                {{/if}}                 
+                </span>                
+                {{if user}}
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a class="text-right" href="/user/profile">个人资料</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a class="text-right">退出</a></li>
+                </ul>
+                {{/if}}
+            </div>
+        </div>
+    </nav>

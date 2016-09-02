@@ -1,0 +1,42 @@
+{{include './shared/header'}}
+{{include './shared/nav'}}
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <textarea name="content" class="form-control" rows="10" placeholder="请详填写回答内容"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success form-control">提交回答</button>
+            </form>
+        </div>
+
+        <div class="media" question="{{questions.time | getTime}}">
+            <div class="media-left">
+                <a>
+                    <img class="media-object" src="/uploads/{{ questions.petname }}.jpg" onerror="this.src=\'/images/user.png\'">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{questions.petname}}</h4>
+                {{questions.content}}
+                <div class="media-footing">
+                    {{questions.time | formatDateTime}}&#x3000;&#x3000;&#x3000; @ {{questions.ip | formatIP}}
+                </div>
+            </div>
+        </div>
+        {{each questions.answers as a i}}
+        <div class="media media-child">
+            <div class="media-body">
+                <h4 class="media-heading">{{a.petname}}</h4>{{a .content}}
+                <div class="media-footing">{{a.time | formatDateTime}}&#x3000;&#x3000;&#x3000; @ {{a.ip | formatIP}}</div>
+            </div>
+            <div class="media-right">
+                <a><img class="media-object" src="/uploads/{{a.petname}}.jpg" onerror="this.src=\'/images/user.png\'"></a>
+            </div>
+        </div>
+       {{/each}} 
+{{include './shared/modal'}}
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="js/jquery.cookie.js"></script>
+        <script src="/scripts/answer.js"></script>
+{{include './shared/footer'}}

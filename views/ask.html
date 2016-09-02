@@ -1,4 +1,5 @@
 {{include './shared/header'}}
+{{include './shared/nav'}}
         <div class="container">
             <form>
                 <div class="form-group">
@@ -6,58 +7,9 @@
                 </div>
                 <button type="submit" class="btn btn-success form-control">提交问题</button>
             </form>
-       </div>
-
-               <div class="media" question="{{q.time | getTime}}">
-            <div class="media-left">
-                <a>
-                    <img class="media-object" src="/uploads/{{ q.petname }}.jpg" onerror="this.src=\'/images/user.png\'">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">{{q.petname}}</h4>
-                {{q.content}}
-                <div class="media-footing">
-                    {{q.time | formatDateTime}}&#x3000;&#x3000;&#x3000; @ {{q.ip | formatIP}}
-                </div>
-            </div>
         </div>
-
-        <div class="media media-child">
-            <div class="media-body">
-                <h4 class="media-heading">{{a.petname}}</h4>{{a .content}}
-                <div class="media-footing">{{a.time | formatDateTime}}&#x3000;&#x3000;&#x3000; @ {{a.ip | formatIP}}</div>
-            </div>
-            <div class="media-right">
-                <a><img class="media-object" src="/uploads/{{a.petname}}.jpg" onerror="this.src=\'/images/user.png\'"></a>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-        <div class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                            <h4 class="modal-title">智游教育</h4>
-                        </div>
-                        <div class="modal-body"></div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="scripts/ask.js"></script>
+{{include './shared/modal'}}
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/scripts/ask.js"></script>
     {{include './shared/footer'}}

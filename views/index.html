@@ -1,12 +1,13 @@
 {{include './shared/header'}}
+{{include './shared/nav'}}
     <div class="container questions">
         <!--需要实现getTime formatDateTime这个模板Helper函数-->
         {{each data as q i}}
         <div class="media" 
         {{if user}}
-        onclick="location.href='answer.html'"
+        onclick="location.href='/answer'"
         {{else}}
-        onclick="location.href='signin.html'"        
+        onclick="location.href='/user/signin'"        
         {{/if}}
         
         question="{{q.time | getTime}}">
@@ -23,6 +24,7 @@
                 </div>
             </div>
         </div>
+
         {{each q.answers as a i}}
 
         <div class="media media-child">
@@ -39,8 +41,8 @@
 
     </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.cookie.js"></script>
-    <script src="scripts/index.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.cookie.js"></script>
+    <script src="/scripts/index.js"></script>
     {{include './shared/footer'}}

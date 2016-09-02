@@ -22,7 +22,7 @@ $('form').submit(function(ev){
             $('.modal').modal('show')
             .on('hidden.bs.modal', function (e) {
                 if(res.code == 'success'){
-                    location.href = 'signin.html'
+                    location.href = '/user/signin'
                 }
             })
         })

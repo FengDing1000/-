@@ -3,7 +3,7 @@ $('#goBack').click(function(){
 })
 
 $('#register').click(function(){
-    location.href = 'register.html'
+    location.href = '/user/register'
 })
 
 $('form').submit(function(ev){
