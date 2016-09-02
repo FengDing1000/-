@@ -8,7 +8,7 @@ exports.sign = function (req, res, next) {//这三个参数来自于调用者 �
             exports.send(res, 'not signin', '登录超时，请重新登录...')
         } else {
             // redirect 要求浏览器跳转到后面指定的地址
-            exports.send(res, 'not signin', '请重新登录...')
+            // exports.send(res, 'not signin', '请重新登录...')
             res.redirect('/user/signin');
         }
     }
